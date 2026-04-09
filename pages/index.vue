@@ -106,41 +106,67 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Services Section Showcase -->
+    <section id="services" class="services-showcase bg-white">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-aos>Реализуйте проекты своей мечты</h2>
-          <p class="section-subtitle" data-aos>Комплексный подход к строительству и инженерным системам.</p>
+        <div class="section-header-centered mb-100" data-aos>
+          <span class="tag">Наши компетенции</span>
+          <h2 class="section-title main-title">Реализуйте проекты своей мечты</h2>
+          <p class="section-desc centered">Комплексный подход к строительству и инженерным системам мирового уровня.</p>
         </div>
         
-        <div class="grid-3 services-grid">
-          <div v-for="(service, index) in services" :key="index" 
-               class="service-card card-rounded" data-aos :style="{ transitionDelay: (index * 0.1) + 's' }">
-            <div class="service-icon"><span v-html="service.icon"></span></div>
-            <h3 class="service-title">{{ service.title }}</h3>
-            <p class="service-text">{{ service.text }}</p>
+        <div class="services-list-detailed">
+          <div v-for="(service, index) in servicesDetailed" :key="index" 
+               class="service-block" :class="{ 'reverse': index % 2 !== 0 }" data-aos>
+            <div class="service-image-side">
+              <div class="service-img-wrapper card-rounded overflow-hidden">
+                <img :src="service.image" :alt="service.title" class="service-main-img" />
+              </div>
+            </div>
+            <div class="service-content-side">
+              <div class="service-info-card">
+                <div class="service-number-tag">0{{ index + 1 }}</div>
+                <h3 class="service-title-large text-uppercase">{{ service.title }}</h3>
+                <p class="service-description-long">{{ service.description }}</p>
+                <ul class="service-features-list">
+                  <li v-for="feat in service.features" :key="feat">
+                    <span class="check-icon">✓</span> {{ feat }}
+                  </li>
+                </ul>
+                <a href="#contacts" class="btn btn-primary">Узнать подробнее <span class="arrow">→</span></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="projects" class="portfolio">
+    <!-- Portfolio Section Showcase -->
+    <section id="projects" class="portfolio-showcase">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-aos>Наша последняя работа</h2>
-          <p class="section-subtitle" data-aos>Портфолио завершенных объектов промышленного и жилого назначения.</p>
+        <div class="section-header-flex mb-80" data-aos>
+          <div class="header-left">
+            <span class="tag">Портфолио</span>
+            <h2 class="section-title">Знаковые проекты</h2>
+          </div>
+          <div class="header-right">
+            <p class="section-desc max-400">Мы гордимся каждым объектом, внедряя лучшие инженерные практики и современные стандарты строительства.</p>
+          </div>
         </div>
         
-        <div class="portfolio-grid">
+        <div class="portfolio-grid-modern">
           <div v-for="(project, index) in portfolio" :key="index" 
-               class="portfolio-item" data-aos>
-            <img :src="project.image" :alt="project.title" class="portfolio-img" />
-            <div class="portfolio-content">
-              <span class="portfolio-tag">{{ project.category }}</span>
-              <h3 class="portfolio-title">{{ project.title }}</h3>
-              <p class="portfolio-desc">{{ project.desc }}</p>
+               class="portfolio-card-detailed" data-aos :style="{ transitionDelay: (index * 0.1) + 's' }">
+            <div class="p-img-box card-rounded overflow-hidden">
+              <img :src="project.image" :alt="project.title" class="p-main-img" />
+              <div class="p-overlay-content">
+                <span class="p-category">{{ project.category }}</span>
+                <h3 class="p-title-white">{{ project.title }}</h3>
+              </div>
+            </div>
+            <div class="p-info-bottom">
+              <p class="p-short-desc">{{ project.desc }}</p>
+              <a href="#" class="p-link-arrow">Смотреть кейс →</a>
             </div>
           </div>
         </div>
@@ -354,59 +380,83 @@ const heroSlides = [
   }
 ]
 
-const services = [
+const servicesDetailed = [
   {
     title: 'Общее строительство',
-    text: 'Хорошая коммуникация имеет решающее значение. Полный цикл возведения зданий любой сложности.',
+    description: 'Мы реализуем масштабные строительные проекты любой сложности — от жилых комплексов до промышленных гигантов. Наш подход основан на инновационных монолитных технологиях и строгом контроле качества материалов.',
+    image: '/service_construction_1775745929170.png',
+    features: ['Монолитное строительство', 'Металлоконструкции', 'Промышленные объекты'],
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>'
   },
   {
     title: 'Архитектура и дизайн',
-    text: 'Некоторые компании специализируются на определенных проектах, мы же создаем уникальные решения.',
+    description: 'Создание знаковых объектов, которые формируют облик города. Мы разрабатываем уникальные архитектурные концепции, балансируя между смелой эстетикой и исключительной функциональностью каждого квадратного метра.',
+    image: '/service_architecture_1775745948020.png',
+    features: ['Эскизное проектирование', 'Рабочая документация', '3D-визуализация'],
     icon: '📐'
   },
   {
     title: 'Дизайн интерьера',
-    text: 'Искусство и наука улучшения внутреннего пространства для комфорта и эстетики вашего бренда.',
+    description: 'Премиальные интерьерные решения для бизнеса и жизни. Мы создаем пространства, где каждая деталь — от световых сценариев до текстур материалов — работает на создание уникальной атмосферы успеха и комфорта.',
+    image: '/service_interior_1775745964153.png',
+    features: ['Авторский надзор', 'Комплектация мебелью', 'Освещение и декор'],
     icon: '🏠'
   },
   {
     title: 'Пожарная безопасность',
-    text: 'Профессиональное проектирование и установка систем предотвращения и защиты от огня.',
+    description: 'Интеллектуальные системы защиты высочайшего уровня. Мы внедряем комплексные решения по обнаружению и тушению пожаров, интегрируя их в общую систему управления зданием (BMS) для максимальной безопасности.',
+    image: '/service_fire_safety_2_1775746023265.png',
+    features: ['Автоматическое пожаротушение', 'Оповещение и эвакуация', 'Огнезащита конструкций'],
     icon: '🔥'
   },
   {
     title: 'ОВКВ и Вентиляция',
-    text: 'Создание идеального микроклимата с интеллектуальным контролем воздушных потоков.',
+    description: 'Идеальный микроклимата в любых условиях. Наши инженеры проектируют и монтируют энергоэффективные системы вентиляции и кондиционирования, обеспечивая чистый воздух и оптимальную температуру 365 дней в году.',
+    image: '/service_hvac_1775745980971.png',
+    features: ['Прецизионное кондиционирование', 'Рекуперация тепла', 'Приточно-вытяжная вентиляция'],
     icon: '🌬️'
   },
   {
     title: 'Реновация зданий',
-    text: 'Мы поддерживаем открытость в процессе обновления и восстановления существующих объектов.',
+    description: 'Вторая жизнь знаковых сооружений. Мы специализируемся на сложной реконструкции исторической и современной недвижимости, интегрируя в старые стены современные инженерные системы и передовую архитектуру.',
+    image: '/service_renovation_1775745995925.png',
+    features: ['Усиление конструкций', 'Замена инженерных сетей', 'Модернизация фасадов'],
     icon: '🛠️'
   }
 ]
 
 const portfolio = [
   {
-    title: 'Промышленный дизайн',
+    title: 'Global Logistics Hub',
     category: 'Промышленный',
-    desc: 'Строительство объектов для производства и переработки.',
+    desc: 'Крупнейший логистический центр с автоматизированными системами управления.',
+    image: '/project_industrial_1775747005565.png'
+  },
+  {
+    title: 'Aura Luxury Mall',
+    category: 'Торговый',
+    desc: 'Премиальный торговый центр с уникальной стеклянной архитектурой купола.',
+    image: '/project_mall_1775747021374.png'
+  },
+  {
+    title: 'Zenith Business Center',
+    category: 'Офисный',
+    desc: 'Инновационное офисное пространство класса А+ в центре столицы.',
     image: '/images/hero.png'
   },
   {
-    title: 'Современная вилла',
+    title: 'Nordic Residence',
     category: 'Жилой',
-    desc: 'Создание премиальных жилых пространств с уникальной архитектурой.',
+    desc: 'Жилой комплекс премиум-класса с собственной экосистемой.',
     image: '/images/hero.png'
   }
 ]
 
 const team = [
-  { name: 'Jo\'rayev Bahodir', role: 'Генеральный директор' },
-  { name: 'Kurbanov Jalol', role: 'Главный инженер' },
-  { name: 'Abdurozokov Husniddin', role: 'Архитектор' },
-  { name: 'Qahhorov Muhammadbobur', role: 'Технический эксперт' }
+  { name: 'Jo\'rayev Bahodir', role: 'Генеральный директор', bio: '20+ лет опыта в управлении строительными проектами.' },
+  { name: 'Kurbanov Jalol', role: 'Главный инженер', bio: 'Эксперт в области высотного строительства и интеграции ОВКВ.' },
+  { name: 'Abdurozokov Husniddin', role: 'Архитектор', bio: 'Автор более 50 инновационных архитектурных концепций.' },
+  { name: 'Qahhorov Muhammadbobur', role: 'Технический эксперт', bio: 'Специалист по автоматизации систем пожарной безопасности.' }
 ]
 
 onMounted(() => {
