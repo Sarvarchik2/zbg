@@ -4,20 +4,22 @@
 
     <!-- Hero Slider Concept -->
     <section class="hero">
-      <div v-for="(slide, index) in heroSlides" :key="index" 
-           class="hero-slide" 
-           v-show="currentSlide === index">
-        <div class="hero-bg" :style="{ backgroundImage: `url(${slide.image})` }"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-          <h1 class="hero-title" data-aos>{{ slide.title }}</h1>
-          <p class="hero-description" data-aos>{{ slide.description }}</p>
-          <div class="hero-btns" data-aos>
-            <a href="#contacts" class="btn btn-primary">Обсудить проект <span class="arrow">→</span></a>
-            <a href="#services" class="btn btn-outline-white">Наши услуги</a>
+      <TransitionGroup name="fade">
+        <div v-for="(slide, index) in heroSlides" :key="index" 
+             class="hero-slide" 
+             v-show="currentSlide === index">
+          <div class="hero-bg" :style="{ backgroundImage: `url(${slide.image})` }"></div>
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <h1 class="hero-title" data-aos>{{ slide.title }}</h1>
+            <p class="hero-description" data-aos>{{ slide.description }}</p>
+            <div class="hero-btns" data-aos>
+              <a href="#contacts" class="btn btn-primary">{{ t.btnDiscuss }} <span class="arrow">→</span></a>
+              <a href="#services" class="btn btn-outline-white">{{ t.btnOurServices }}</a>
+            </div>
           </div>
         </div>
-      </div>
+      </TransitionGroup>
     </section>
 
     <!-- Top Features (Benefits) -->
@@ -110,9 +112,9 @@
     <section id="services" class="services-showcase bg-white">
       <div class="container">
         <div class="section-header-centered mb-100" data-aos>
-          <span class="tag">Наши компетенции</span>
-          <h2 class="section-title main-title">Реализуйте проекты своей мечты</h2>
-          <p class="section-desc centered">Комплексный подход к строительству и инженерным системам мирового уровня.</p>
+          <span class="tag">{{ t.servicesTag }}</span>
+          <h2 class="section-title main-title">{{ t.servicesTitle }}</h2>
+          <p class="section-desc centered">{{ t.servicesDesc }}</p>
         </div>
         
         <div class="services-list-detailed">
@@ -133,8 +135,29 @@
                     <span class="check-icon">✓</span> {{ feat }}
                   </li>
                 </ul>
-                <a href="#contacts" class="btn btn-primary">Узнать подробнее <span class="arrow">→</span></a>
+                <a href="#contacts" class="btn btn-primary">{{ t.btnLearnMore }} <span class="arrow">→</span></a>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Process Section -->
+    <section class="process-section bg-light">
+      <div class="container">
+        <div class="section-header text-center mb-80">
+          <span class="tag">{{ t.processTag }}</span>
+          <h2 class="section-title">{{ t.processTitle }}</h2>
+        </div>
+        
+        <div class="process-steps-grid">
+          <div v-for="(step, index) in processSteps" :key="index" class="process-step-card" data-aos :style="{ transitionDelay: (index * 0.1) + 's' }">
+            <div class="step-num-circle">{{ index + 1 }}</div>
+            <h4 class="step-title">{{ step.title }}</h4>
+            <p class="step-desc">{{ step.desc }}</p>
+            <div class="step-visual">
+               <div class="line-animated"></div>
             </div>
           </div>
         </div>
@@ -146,11 +169,11 @@
       <div class="container">
         <div class="section-header-flex mb-80" data-aos>
           <div class="header-left">
-            <span class="tag">Портфолио</span>
-            <h2 class="section-title">Знаковые проекты</h2>
+            <span class="tag">{{ t.portfolioTag }}</span>
+            <h2 class="section-title">{{ t.portfolioTitle }}</h2>
           </div>
           <div class="header-right">
-            <p class="section-desc max-400">Мы гордимся каждым объектом, внедряя лучшие инженерные практики и современные стандарты строительства.</p>
+            <p class="section-desc max-400">{{ t.portfolioDesc }}</p>
           </div>
         </div>
         
@@ -266,7 +289,7 @@
         <div class="contact-card-modern card-rounded bg-dark text-white overflow-hidden">
           <div class="grid-2 contact-inner">
             <div class="contact-text-side" data-aos>
-              <h2 class="cta-title white-text">Обсудим ваш <br />проект?</h2>
+              <h2 class="cta-title white-text" v-html="t.contactTitle"></h2>
               <div class="contact-details">
                 <div class="detail-item">
                   <span class="d-label">Телефон</span>
@@ -305,7 +328,7 @@
         <div class="footer-grid">
           <div class="footer-col brand-col">
             <div class="footer-logo">ZBG</div>
-            <p class="footer-desc">Современные инженерные решения и строительство премиум-класса в Узбекистане. 25 лет опыта и качества.</p>
+            <p class="footer-desc">{{ t.footerDesc }}</p>
             <div class="social-links">
               <a href="#" class="social-icon">Instagram</a>
               <a href="#" class="social-icon">Telegram</a>
@@ -359,7 +382,53 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
+import { useLocale } from '~/composables/useLocale'
+
+const { locale } = useLocale()
+
+const translations = {
+  RU: {
+    navAbout: 'О нас',
+    navServices: 'Услуги',
+    navProjects: 'Проекты',
+    navContacts: 'Контакты',
+    btnDiscuss: 'Обсудить проект',
+    btnOurServices: 'Наши услуги',
+    servicesTag: 'Наши компетенции',
+    servicesTitle: 'Реализуйте проекты своей мечты',
+    servicesDesc: 'Комплексный подход к строительству и инженерным системам мирового уровня.',
+    btnLearnMore: 'Узнать подробнее',
+    processTag: 'Наш процесс',
+    processTitle: 'Путь к идеальному результату',
+    portfolioTag: 'Портфолио',
+    portfolioTitle: 'Знаковые проекты',
+    portfolioDesc: 'Мы гордимся каждым объектом, внедряя лучшие инженерные практики.',
+    contactTitle: 'Обсудим ваш проект?',
+    footerDesc: 'Современные инженерные решения и строительство премиум-класса в Узбекистане. 25 лет опыта и качества.'
+  },
+  UZ: {
+    navAbout: 'Biz haqimizda',
+    navServices: 'Xizmatlar',
+    navProjects: 'Loyihalar',
+    navContacts: 'Kontaktlar',
+    btnDiscuss: 'Loyihani muhokama qilish',
+    btnOurServices: 'Xizmatlarimiz',
+    servicesTag: 'Bizning kompetensiyalarimiz',
+    servicesTitle: 'Orzuingizdagi loyihalarni amalga oshiring',
+    servicesDesc: 'Qurilish va muhandislik tizimlariga jahon darajasidagi kompleks yondashuv.',
+    btnLearnMore: 'Batafsil ma\'lumot',
+    processTag: 'Ish jarayoni',
+    processTitle: 'Mukammal natijaga yo\'l',
+    portfolioTag: 'Portfolio',
+    portfolioTitle: 'Ramziy loyihalar',
+    portfolioDesc: 'Biz har bir ob\'ekt bilan faxrlanamiz va eng yaxshi muhandislik amaliyotlarini joriy etamiz.',
+    contactTitle: 'Loyihangizni muhokama qilamizmi?',
+    footerDesc: 'O\'zbekistonda zamonaviy muhandislik echimlari va premium darajadagi qurilish. 25 yillik tajriba va sifat.'
+  }
+}
+
+const t = computed(() => translations[locale.value])
 
 const currentSlide = ref(0)
 const heroSlides = [
@@ -378,6 +447,13 @@ const heroSlides = [
     description: 'Обеспечиваем безопасную и эффективную работу инженерных систем с вниманием к каждой детали.',
     image: '/images/hero.png'
   }
+]
+
+const processSteps = [
+  { title: 'Анализ', desc: 'Первичная консультация, изучение объекта и постановка задач.' },
+  { title: 'Проектирование', desc: 'Разработка архитектурных и инженерных решений.' },
+  { title: 'Строительство', desc: 'Реализация проекта с соблюдением всех стандартов.' },
+  { title: 'Сдача', desc: 'Финальная проверка и передача готового объекта.' }
 ]
 
 const servicesDetailed = [
@@ -529,6 +605,26 @@ onMounted(() => {
   margin-bottom: 24px;
 }
 
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 .hero-description {
   font-size: 1.25rem;
   opacity: 0.8;
@@ -553,10 +649,23 @@ onMounted(() => {
   z-index: 30;
 }
 
+@media (max-width: 968px) {
+  .benefits-sec {
+    margin-top: -30px;
+    padding: 0 20px;
+  }
+}
+
 .benefit-card {
   background: #fff;
   padding: 48px;
   box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+  .benefit-card {
+    padding: 30px;
+  }
 }
 
 .benefit-icon {
@@ -732,6 +841,11 @@ onMounted(() => {
   .cta-content { flex-direction: column; text-align: center; gap: 40px; }
   .cta-actions { text-align: center; }
   .experience-badge { position: static; margin-top: 20px; }
-  .hero-title { font-size: 2.5rem; }
+  .hero-title { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .c-num { font-size: 2.5rem; }
 }
 </style>

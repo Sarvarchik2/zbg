@@ -1,32 +1,60 @@
 <template>
-  <header class="header glass-nav" :class="{ 'header-scrolled': scrolled }">
+  <header class="header glass-nav" :class="{ 'header-scrolled': scrolled, 'menu-active': isMenuOpen }">
     <div class="container header-content">
       <div class="logo">
         <span class="logo-text">ZBG</span>
       </div>
       
-      <nav class="nav">
+      <nav class="nav" :class="{ 'nav-open': isMenuOpen }">
         <ul class="nav-list">
-          <li><a href="#about">О нас</a></li>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#projects">Проекты</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="#about" @click="isMenuOpen = false">{{ t.navAbout }}</a></li>
+          <li><a href="#services" @click="isMenuOpen = false">{{ t.navServices }}</a></li>
+          <li><a href="#projects" @click="isMenuOpen = false">{{ t.navProjects }}</a></li>
+          <li><a href="#contacts" @click="isMenuOpen = false">{{ t.navContacts }}</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <div class="lang-switcher">
-          <span class="active">RU</span>
-          <span>UZ</span>
+        <div class="lang-switcher hide-mobile">
+          <span :class="{ 'active': locale === 'RU' }" @click="setLocale('RU')">RU</span>
+          <span :class="{ 'active': locale === 'UZ' }" @click="setLocale('UZ')">UZ</span>
         </div>
-        <a href="#contacts" class="btn btn-primary btn-sm">Связаться</a>
+        <a href="#contacts" class="btn btn-primary btn-sm hide-mobile">Связаться</a>
+        
+        <button class="burger" @click="isMenuOpen = !isMenuOpen" :class="{ 'active': isMenuOpen }">
+          <span class="line-wrap">
+            <span class="line"></span>
+            <span class="line"></span>
+          </span>
+        </button>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
+import { useLocale } from '~/composables/useLocale'
 const scrolled = ref(false)
+const isMenuOpen = ref(false)
+const { locale, setLocale } = useLocale()
+
+const translations = {
+  RU: {
+    navAbout: 'О нас',
+    navServices: 'Услуги',
+    navProjects: 'Проекты',
+    navContacts: 'Контакты',
+  },
+  UZ: {
+    navAbout: 'Biz haqimizda',
+    navServices: 'Xizmatlar',
+    navProjects: 'Loyihalar',
+    navContacts: 'Kontaktlar',
+  }
+}
+
+const t = computed(() => translations[locale.value])
 
 if (process.client) {
   window.addEventListener('scroll', () => {
@@ -54,7 +82,6 @@ if (process.client) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
 }
 
 .logo-text {
@@ -62,6 +89,8 @@ if (process.client) {
   font-size: 1.5rem;
   font-weight: 900;
   color: #000;
+  position: relative;
+  z-index: 2001;
 }
 
 .nav-list {
@@ -76,6 +105,7 @@ if (process.client) {
   color: var(--text-secondary);
   font-family: 'Unbounded', sans-serif;
   letter-spacing: 0.05em;
+  transition: var(--transition);
 }
 
 .nav-list a:hover {
@@ -88,35 +118,76 @@ if (process.client) {
   gap: 24px;
 }
 
-.lang-switcher {
+.hide-mobile {
   display: flex;
-  background: #fff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.1);
-  gap: 12px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  font-family: 'Unbounded', sans-serif;
 }
 
-.lang-switcher span {
-  opacity: 0.4;
+.burger {
+  display: none;
+  background: none;
+  border: none;
   cursor: pointer;
+  z-index: 2000;
+  padding: 10px;
 }
 
-.lang-switcher span.active {
-  opacity: 1;
+.line-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 24px;
 }
 
-.btn-sm {
-  padding: 10px 24px;
-  font-size: 0.75rem;
+.line {
+  width: 100%;
+  height: 2px;
+  background: var(--bg-dark);
+  transition: var(--transition);
+}
+
+.burger.active .line:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.burger.active .line:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 @media (max-width: 968px) {
   .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1500;
+  }
+
+  .nav-open {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-list a {
+    font-size: 1.5rem;
+  }
+
+  .hide-mobile {
     display: none;
+  }
+
+  .burger {
+    display: flex;
   }
 }
 </style>
