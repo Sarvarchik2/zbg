@@ -48,33 +48,35 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container grid-2 about-layout">
-        <div class="about-image-wrapper" data-aos>
-          <img src="/images/hero.png" alt="ZBG Projects" class="img-rounded main-about-img" />
-          <div class="experience-badge card-rounded">
-            <span class="exp-num">25+</span>
-            <span class="exp-text">Лет опыта</span>
+    <section id="about" class="about-sec bg-white">
+      <div class="container grid-2 about-wrapper">
+        <div class="about-image-side" data-aos>
+          <div class="image-container card-rounded overflow-hidden">
+            <img src="/images/hero.png" alt="ZBG Project" class="full-img" />
+          </div>
+          <div class="experience-badge-new card-rounded" data-aos>
+            <span class="badge-num">25+</span>
+            <span class="badge-txt">Лет опыта</span>
           </div>
         </div>
-        <div class="about-content" data-aos>
-          <h2 class="section-title">О компании ZBG</h2>
-          <p class="section-subtitle">Мировые стандарты инжиниринга в Узбекистане.</p>
-          <p class="about-text">Многие современные строительные компании уделяют особое внимание экологически безопасным методам строительства, внедряя экологически чистые материалы и энергоэффективные системы.</p>
+        <div class="about-content-side" data-aos>
+          <span class="tag">О компании ZBG</span>
+          <h2 class="section-title main-title">Мировые стандарты инжиниринга в Узбекистане</h2>
+          <p class="section-desc">Многие современные строительные компании уделяют особое внимание экологически безопасным методам строительства, внедряя экологически чистые материалы и энергоэффективные системы для снижения воздействия на окружающую среду.</p>
           
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <div class="h-icon">✓</div>
-              <div class="h-info">
-                <h4 class="h-title">Услуги по всему миру</h4>
-                <p>Мы предоставляем прозрачные сметы расходов и строго придерживаемся согласованных сроков.</p>
+          <div class="highlights-grid">
+            <div class="highlight-item-new">
+              <div class="icon-circle">✓</div>
+              <div class="highlight-info">
+                <h4>Услуги по всему миру</h4>
+                <p>Мы предоставляем прозрачные сметы расходов и строго придерживаемся сроков.</p>
               </div>
             </div>
-            <div class="highlight-item">
-              <div class="h-icon">✓</div>
-              <div class="h-info">
-                <h4 class="h-title">Победитель номинаций</h4>
-                <p>Надежная строительная компания умеет эффективно управлять бюджетами и сложными проектами.</p>
+            <div class="highlight-item-new">
+              <div class="icon-circle">✓</div>
+              <div class="highlight-info">
+                <h4>Надежное управление</h4>
+                <p>Наша компания умеет эффективно управлять сложными бюджетами и проектами.</p>
               </div>
             </div>
           </div>
@@ -214,7 +216,7 @@
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="blog-sec">
+    <!-- <section id="blog" class="blog-sec">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title" data-aos>Новости и блог</h2>
@@ -230,34 +232,40 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Contact Section -->
-    <section id="contacts" class="contacts-sec">
+    <section id="contacts" class="contacts-section">
       <div class="container">
-        <div class="contact-card card-rounded bg-dark text-white">
-          <div class="contact-grid grid-2">
-            <div class="contact-info" data-aos>
-              <h2 class="contact-title text-white">ОБСУДИМ ВАШ <br />ПРОЕКТ?</h2>
+        <div class="contact-card-modern card-rounded bg-dark text-white overflow-hidden">
+          <div class="grid-2 contact-inner">
+            <div class="contact-text-side" data-aos>
+              <h2 class="cta-title white-text">Обсудим ваш <br />проект?</h2>
               <div class="contact-details">
                 <div class="detail-item">
-                  <span class="detail-label">Телефон</span>
-                  <a href="tel:+998995600101" class="detail-value">+998 99 560 01 01</a>
+                  <span class="d-label">Телефон</span>
+                  <span class="d-value">+998 99 560 01 01</span>
                 </div>
                 <div class="detail-item">
-                  <span class="detail-label">Электронная почта</span>
-                  <a href="mailto:zaminbiggroup@mail.ru" class="detail-value">zaminbiggroup@mail.ru</a>
+                  <span class="d-label">Почта</span>
+                  <span class="d-value">zaminbiggroup@mail.ru</span>
                 </div>
               </div>
             </div>
             <div class="contact-form-side" data-aos>
-              <form class="contact-form">
-                <div class="form-row">
-                  <input type="text" placeholder="Имя" class="input-modern" />
-                  <input type="email" placeholder="Email" class="input-modern" />
+              <form class="modern-form">
+                <div class="input-group">
+                  <input type="text" placeholder="Ваше имя" required />
                 </div>
-                <textarea placeholder="Сообщение" rows="4" class="input-modern"></textarea>
-                <button type="submit" class="btn btn-accent">ОТПРАВИТЬ <span class="arrow">→</span></button>
+                <div class="input-group">
+                  <input type="email" placeholder="Электронная почта" required />
+                </div>
+                <div class="input-group">
+                  <textarea placeholder="Ваше сообщение" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-accent full-width" @click.prevent>
+                  Отправить заявку <span class="arrow">→</span>
+                </button>
               </form>
             </div>
           </div>
@@ -265,53 +273,56 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Full Premium Footer -->
+    <footer class="main-footer">
       <div class="container">
-        <div class="footer-grid grid-4">
-          <div class="footer-col info-col">
+        <div class="footer-grid">
+          <div class="footer-col brand-col">
             <div class="footer-logo">ZBG</div>
-            <p class="footer-about">Мы воплощаем в жизнь самые смелые инженерные и архитектурные решения, обеспечивая безопасность и комфорт вашего будущего.</p>
-            <div class="footer-social">
-              <a href="#" class="social-link">FB</a>
-              <a href="#" class="social-link">IG</a>
-              <a href="#" class="social-link">TG</a>
+            <p class="footer-desc">Современные инженерные решения и строительство премиум-класса в Узбекистане. 25 лет опыта и качества.</p>
+            <div class="social-links">
+              <a href="#" class="social-icon">Instagram</a>
+              <a href="#" class="social-icon">Telegram</a>
+              <a href="#" class="social-icon">Facebook</a>
             </div>
           </div>
           
           <div class="footer-col">
-            <h4 class="footer-h">Навигация</h4>
+            <h4 class="footer-title">Навигация</h4>
             <ul class="footer-links">
               <li><a href="#about">О нас</a></li>
               <li><a href="#services">Услуги</a></li>
               <li><a href="#projects">Проекты</a></li>
-              <li><a href="#contacts">Контакты</a></li>
+              <li><a href="#team">Команда</a></li>
+              <li><a href="#blog">Блог</a></li>
             </ul>
           </div>
           
           <div class="footer-col">
-            <h4 class="footer-h">Услуги</h4>
+            <h4 class="footer-title">Услуги</h4>
             <ul class="footer-links">
-              <li>Пожарная безопасность</li>
-              <li>Вентиляция и ОВКВ</li>
-              <li>Общее строительство</li>
-              <li>Дизайн интерьера</li>
+              <li><a href="#">Строительство</a></li>
+              <li><a href="#">Архитектура</a></li>
+              <li><a href="#">Дизайн интерьера</a></li>
+              <li><a href="#">Пожарные системы</a></li>
+              <li><a href="#">Вентиляция</a></li>
             </ul>
           </div>
           
-          <div class="footer-col newsletter-col">
-            <h4 class="footer-h">Информационный бюллетень</h4>
-            <p class="newsletter-text">Подпишитесь, чтобы получать обновления и новости о нас.</p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Ваш Email" class="newsletter-input" />
-              <button type="submit" class="newsletter-btn">→</button>
-            </form>
+          <div class="footer-col">
+            <h4 class="footer-title">Контакты</h4>
+            <ul class="footer-contact">
+              <li>Ташкент, Узбекистан</li>
+              <li>+998 99 560 01 01</li>
+              <li>zaminbiggroup@mail.ru</li>
+              <li>Пн — Сб: 09:00 — 18:00</li>
+            </ul>
           </div>
         </div>
         
         <div class="footer-bottom">
-          <p class="copyright">&copy; 2026 Zafar Business Group. Все права защищены.</p>
-          <div class="footer-meta">
+          <div class="copy">© 2026 Zafar Business Group. Все права защищены.</div>
+          <div class="legal-links">
             <a href="#">Политика конфиденциальности</a>
             <a href="#">Условия использования</a>
           </div>
