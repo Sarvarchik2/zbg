@@ -1073,3 +1073,28 @@ section {
   transform: translateY(-5px);
   box-shadow: 0 30px 60px rgba(0,0,0,0.06);
 }
+
+/* Borderless Image Cards */
+.borderless-img-card {
+  border-radius: var(--border-radius-lg);
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  background: transparent !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.benefit-card.no-padding .benefit-icon-img {
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.portfolio-card-detailed .borderless-img-card {
+  aspect-ratio: 16/11;
+}
+
+.service-img-wrapper.borderless-img-card {
+  box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+}

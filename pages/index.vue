@@ -23,44 +23,32 @@
     </section>
 
     <!-- Top Features (Benefits) -->
-    <section class="benefits-sec">
+    <section id="benefits" class="benefits-sec">
       <div class="container grid-3">
-        <div class="benefit-card card-rounded" data-aos>
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z"/></svg>
+        <div v-for="(benefit, index) in benefits" :key="index" class="benefit-card no-padding overflow-hidden card-rounded" data-aos :style="{ transitionDelay: (index * 0.1) + 's' }">
+          <div class="benefit-icon-img overflow-hidden" style="height: 220px;">
+            <img :src="benefit.image" :alt="benefit.title" class="full-img" />
           </div>
-          <h3 class="benefit-title">Лучшая инженерия</h3>
-          <p class="benefit-text">Хорошая коммуникация имеет решающее значение в строительной отрасли. Мы остаемся открытыми и прозрачными.</p>
-        </div>
-        <div class="benefit-card card-rounded" data-aos :style="{ transitionDelay: '0.1s' }">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+          <div style="padding: 40px;">
+            <h3 class="benefit-title">{{ benefit.title }}</h3>
+            <p class="benefit-text">{{ benefit.text }}</p>
           </div>
-          <h3 class="benefit-title">Умные технологии</h3>
-          <p class="benefit-text">Мы внедряем современные интеллектуальные системы для автоматизации и повышения безопасности вашего объекта.</p>
-        </div>
-        <div class="benefit-card card-rounded" data-aos :style="{ transitionDelay: '0.2s' }">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v8L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45L14 10V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
-          </div>
-          <h3 class="benefit-title">Химические исследования</h3>
-          <p class="benefit-text">Уважаемая строительная компания обычно имеет команду опытных специалистов для контроля качества материалов.</p>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-sec bg-white">
-      <div class="container grid-2 about-wrapper">
-        <div class="about-image-side" data-aos>
-          <div class="image-container card-rounded overflow-hidden">
-            <img src="/images/hero.png" alt="ZBG Project" class="full-img" />
+        <div class="grid-2 about-wrapper" data-aos>
+          <div class="about-image-side">
+            <div class="image-container borderless-img-card overflow-hidden">
+              <img src="/about_zbg_building_1775798859126.png" alt="О компании" class="full-img" />
+            </div>
+            <div class="experience-badge-new card-rounded">
+              <span class="badge-num">25</span>
+              <span class="badge-txt">Лет опыта</span>
+            </div>
           </div>
-          <div class="experience-badge-new card-rounded" data-aos>
-            <span class="badge-num">25+</span>
-            <span class="badge-txt">Лет опыта</span>
-          </div>
-        </div>
         <div class="about-content-side" data-aos>
           <span class="tag">О компании ZBG</span>
           <h2 class="section-title main-title">Мировые стандарты инжиниринга в Узбекистане</h2>
@@ -121,7 +109,7 @@
           <div v-for="(service, index) in servicesDetailed" :key="index" 
                class="service-block" :class="{ 'reverse': index % 2 !== 0 }" data-aos>
             <div class="service-image-side">
-              <div class="service-img-wrapper card-rounded overflow-hidden">
+              <div class="service-img-wrapper borderless-img-card overflow-hidden">
                 <img :src="service.image" :alt="service.title" class="service-main-img" />
               </div>
             </div>
@@ -180,7 +168,7 @@
         <div class="portfolio-grid-modern">
           <div v-for="(project, index) in portfolio" :key="index" 
                class="portfolio-card-detailed" data-aos :style="{ transitionDelay: (index * 0.1) + 's' }">
-            <div class="p-img-box card-rounded overflow-hidden">
+            <div class="p-img-box borderless-img-card overflow-hidden">
               <img :src="project.image" :alt="project.title" class="p-main-img" />
               <div class="p-overlay-content">
                 <span class="p-category">{{ project.category }}</span>
@@ -207,7 +195,7 @@
         <div class="team-grid">
           <div v-for="(member, index) in team" :key="index" class="team-card" data-aos :style="{ transitionDelay: (index * 0.1) + 's' }">
             <div class="team-image">
-              <img :src="`https://ui-avatars.com/api/?name=${member.name}&background=141414&color=fff&size=512&bold=true`" :alt="member.name" />
+              <img :src="member.image" :alt="member.name" />
             </div>
             <h3 class="team-name">{{ member.name }}</h3>
             <p class="team-role">{{ member.role }}</p>
@@ -263,25 +251,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Blog Section -->
-    <!-- <section id="blog" class="blog-sec">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-aos>Новости и блог</h2>
-        </div>
-        <div class="grid-3 blog-grid">
-          <div v-for="i in 3" :key="i" class="blog-item card-rounded bg-white" data-aos :style="{ transitionDelay: (i * 0.1) + 's' }">
-            <div class="blog-meta">
-              <span class="blog-date">22 января 2025</span>
-              <span class="blog-cat">Construction</span>
-            </div>
-            <h3 class="blog-title">Команда зверей вокруг и как мы заставляем ее работать</h3>
-            <a href="#" class="blog-link">Читать далее →</a>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- Contact Section -->
     <section id="contacts" class="contacts-section">
@@ -343,7 +312,6 @@
               <li><a href="#services">Услуги</a></li>
               <li><a href="#projects">Проекты</a></li>
               <li><a href="#team">Команда</a></li>
-              <li><a href="#blog">Блог</a></li>
             </ul>
           </div>
           
@@ -435,18 +403,24 @@ const heroSlides = [
   {
     title: 'Вложите в пожарные системы и защитите своё Здание',
     description: 'Инвестируйте в системы пожарной безопасности, чтобы предотвратить угрозу пожара. Это поможет защитить ваш труд и инвестиции.',
-    image: '/images/hero.png'
+    image: '/hero_fire_safety_new_1775798814187.png'
   },
   {
     title: 'Профессиональное движение воздуха в вашем Здании',
     description: 'Создайте здоровую среду с нашими системами кондиционирования и вентиляции. Чистый и свежий воздух — наша забота.',
-    image: '/images/hero.png'
+    image: '/hero_hvac_new_1775798831744.png'
   },
   {
     title: 'Сантехника и электрика — долговечная Гарантия',
     description: 'Обеспечиваем безопасную и эффективную работу инженерных систем с вниманием к каждой детали.',
-    image: '/images/hero.png'
+    image: '/hero_engineering_new_1775798846437.png'
   }
+]
+
+const benefits = [
+  { title: 'Лучшая инженерия', text: 'Мы используем передовые решения для надежной работы всех систем.', image: '/benefit_engineering_new_1775798882847.png' },
+  { title: 'Умные технологии', text: 'Интеграция систем автоматизации и энергоэффективности.', image: '/benefit_tech_new_1775798896230.png' },
+  { title: 'Химические исследования', text: 'Контроль качества материалов и технический аудит.', image: '/benefit_research_new_1775798911158.png' }
 ]
 
 const processSteps = [
@@ -518,21 +492,21 @@ const portfolio = [
     title: 'Zenith Business Center',
     category: 'Офисный',
     desc: 'Инновационное офисное пространство класса А+ в центре столицы.',
-    image: '/images/hero.png'
+    image: '/project_office_zenith_new_1775798953280.png'
   },
   {
     title: 'Nordic Residence',
     category: 'Жилой',
     desc: 'Жилой комплекс премиум-класса с собственной экосистемой.',
-    image: '/images/hero.png'
+    image: '/project_residential_nordic_new_1775798928270.png'
   }
 ]
 
 const team = [
-  { name: 'Jo\'rayev Bahodir', role: 'Генеральный директор', bio: '20+ лет опыта в управлении строительными проектами.' },
-  { name: 'Kurbanov Jalol', role: 'Главный инженер', bio: 'Эксперт в области высотного строительства и интеграции ОВКВ.' },
-  { name: 'Abdurozokov Husniddin', role: 'Архитектор', bio: 'Автор более 50 инновационных архитектурных концепций.' },
-  { name: 'Qahhorov Muhammadbobur', role: 'Технический эксперт', bio: 'Специалист по автоматизации систем пожарной безопасности.' }
+  { name: 'Jo\'rayev Bahodir', role: 'Генеральный директор', bio: '20+ лет опыта в управлении строительными проектами.', image: '/team_bahodir_gen_1775798969472.png' },
+  { name: 'Kurbanov Jalol', role: 'Главный инженер', bio: 'Эксперт в области высотного строительства и интеграции ОВКВ.', image: '/team_jalol_gen_1775798986354.png' },
+  { name: 'Abdurozokov Husniddin', role: 'Архитектор', bio: 'Автор более 50 инновационных архитектурных концепций.', image: '/team_husniddin_gen_1775799003914.png' },
+  { name: 'Qahhorov Muhammadbobur', role: 'Технический эксперт', bio: 'Специалист по автоматизации систем пожарной безопасности.', image: '/team_muhammadbobur_gen_1775799841187.png' }
 ]
 
 onMounted(() => {
