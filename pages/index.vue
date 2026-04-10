@@ -50,7 +50,7 @@
             </div>
           </div>
         <div class="about-content-side" data-aos>
-          <span class="tag">О компании ZBG</span>
+          <span class="tag">О компании Best Service Group</span>
           <h2 class="section-title main-title">Мировые стандарты инжиниринга в Узбекистане</h2>
           <p class="section-desc">Многие современные строительные компании уделяют особое внимание экологически безопасным методам строительства, внедряя экологически чистые материалы и энергоэффективные системы для снижения воздействия на окружающую среду.</p>
           
@@ -266,7 +266,7 @@
                 </div>
                 <div class="detail-item">
                   <span class="d-label">Почта</span>
-                  <span class="d-value">zaminbiggroup@mail.ru</span>
+                  <span class="d-value">info@bs-group.uz</span>
                 </div>
               </div>
             </div>
@@ -296,7 +296,9 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col brand-col">
-            <div class="footer-logo">ZBG</div>
+            <div class="footer-logo">
+              <img src="/images/logo.png" alt="Best Service Group" class="footer-logo-img" />
+            </div>
             <p class="footer-desc">{{ t.footerDesc }}</p>
             <div class="social-links">
               <a href="#" class="social-icon">Instagram</a>
@@ -331,14 +333,14 @@
             <ul class="footer-contact">
               <li>Ташкент, Узбекистан</li>
               <li>+998 99 560 01 01</li>
-              <li>zaminbiggroup@mail.ru</li>
+              <li>info@bs-group.uz</li>
               <li>Пн — Сб: 09:00 — 18:00</li>
             </ul>
           </div>
         </div>
         
         <div class="footer-bottom">
-          <div class="copy">© 2026 Zafar Business Group. Все права защищены.</div>
+          <div class="copy">© 2026 Best Service Group. Все права защищены.</div>
           <div class="legal-links">
             <a href="#">Политика конфиденциальности</a>
             <a href="#">Условия использования</a>
@@ -531,6 +533,7 @@ onMounted(() => {
 .hero {
   position: relative;
   height: 90vh;
+  margin-top: 100px;
   background: var(--bg-dark);
 }
 
@@ -674,7 +677,7 @@ onMounted(() => {
   font-family: 'Unbounded', sans-serif;
   font-size: 3rem;
   font-weight: 900;
-  color: var(--accent-blue);
+  color: var(--accent);
   line-height: 1;
 }
 
@@ -714,7 +717,7 @@ onMounted(() => {
   font-family: 'Unbounded', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 .c-label {
@@ -766,7 +769,7 @@ onMounted(() => {
   gap: 20px;
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--accent-blue);
+  color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 16px;
 }

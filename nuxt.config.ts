@@ -4,11 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: 'ZBG - Zafar Business Group | Инженерные решения и строительство',
+      title: 'Best Service Group | Инженерные решения и строительство в Узбекистане',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'ZBG (Zafar Business Group) - ведущая инжиниринговая и строительная компания в Узбекистане. Профессиональные системы пожарной безопасности, ОВКВ, сантехника, электрика и современный дизайн интерьера.' }
+        { name: 'description', content: 'Best Service Group - ведущая инжиниринговая и строительная компания в Узбекистане. Профессиональные системы пожарной безопасности, ОВКВ, сантехника, электрика и современный дизайн интерьера.' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

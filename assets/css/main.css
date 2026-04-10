@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #C5A059; /* Keeping the ZBG gold but refined */
-  --accent-blue: #88A6C1;
+  --primary: #FF8C00; /* Stylish Orange from Logo */
+  --accent: #FFAB40; /* Lighter Orange for accents */
   --bg-light: #F2F4F7;
   --bg-dark: #141414;
   --text-primary: #000000;
@@ -163,7 +163,7 @@ section {
   font-family: 'Unbounded', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
-  color: var(--accent-blue);
+  color: var(--accent);
   line-height: 1;
 }
 
@@ -181,7 +181,7 @@ section {
   font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--accent-blue);
+  color: var(--accent);
   margin-bottom: 16px;
   letter-spacing: 0.1em;
 }
@@ -224,7 +224,7 @@ section {
 .icon-circle {
   width: 32px;
   height: 32px;
-  background: var(--accent-blue);
+  background: var(--accent);
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -279,7 +279,7 @@ section {
   font-family: 'Unbounded', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 .modern-form {
@@ -304,7 +304,7 @@ section {
 .input-group textarea:focus {
   outline: none;
   background: rgba(255,255,255,0.08);
-  border-color: var(--accent-blue);
+  border-color: var(--accent);
 }
 
 /* Footer Premium */
@@ -345,7 +345,7 @@ section {
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 .footer-title {
@@ -477,7 +477,7 @@ section {
 }
 
 .btn-accent {
-  background: var(--accent-blue);
+  background: var(--accent);
   color: var(--white);
 }
 
@@ -624,7 +624,7 @@ section {
 }
 
 .service-features-list .check-icon {
-  color: var(--accent-blue);
+  color: var(--accent);
   font-weight: 900;
 }
 
@@ -677,7 +677,7 @@ section {
   font-family: 'Unbounded', sans-serif;
   font-size: 8rem;
   line-height: 1;
-  color: var(--accent-blue);
+  color: var(--accent);
   opacity: 0.3;
   margin-bottom: -40px;
 }
@@ -705,7 +705,7 @@ section {
   text-transform: uppercase;
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 /* Partners Logos */
@@ -850,7 +850,7 @@ section {
   font-family: 'Unbounded', sans-serif;
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--accent-blue);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -885,7 +885,7 @@ section {
 }
 
 .p-link-arrow:hover {
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 /* Team Styles Refined */
@@ -924,7 +924,7 @@ section {
 }
 
 .team-role {
-  color: var(--accent-blue);
+  color: var(--accent);
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -1097,4 +1097,23 @@ section {
 
 .service-img-wrapper.borderless-img-card {
   box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+}
+
+/* Logo Styles */
+.header-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    height: 36px;
+  }
 }

@@ -2,7 +2,7 @@
   <header class="header glass-nav" :class="{ 'header-scrolled': scrolled, 'menu-active': isMenuOpen }">
     <div class="container header-content">
       <div class="logo">
-        <span class="logo-text">ZBG</span>
+        <img src="/images/logo.png" alt="Best Service Group" class="header-logo" />
       </div>
       
       <nav class="nav" :class="{ 'nav-open': isMenuOpen }">
