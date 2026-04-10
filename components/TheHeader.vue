@@ -12,6 +12,12 @@
           <li><a href="#projects" @click="isMenuOpen = false">{{ t.navProjects }}</a></li>
           <li><a href="#contacts" @click="isMenuOpen = false">{{ t.navContacts }}</a></li>
         </ul>
+        <div class="mobile-menu-footer">
+          <div class="lang-switcher">
+            <span :class="{ 'active': locale === 'RU' }" @click="setLocale('RU')">RU</span>
+            <span :class="{ 'active': locale === 'UZ' }" @click="setLocale('UZ')">UZ</span>
+          </div>
+        </div>
       </nav>
 
       <div class="header-actions">
@@ -154,6 +160,10 @@ if (process.client) {
 }
 
 @media (max-width: 968px) {
+  .header {
+    padding: 20px 0;
+  }
+  
   .nav {
     position: fixed;
     top: 0;
@@ -162,6 +172,7 @@ if (process.client) {
     height: 100vh;
     background: #fff;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -175,11 +186,21 @@ if (process.client) {
   .nav-list {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 32px;
+    margin-bottom: 60px;
   }
 
   .nav-list a {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+  }
+
+  .mobile-menu-footer {
+    padding-top: 40px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    width: 200px;
+    display: flex;
+    justify-content: center;
   }
 
   .hide-mobile {
@@ -188,6 +209,10 @@ if (process.client) {
 
   .burger {
     display: flex;
+  }
+  
+  .header-logo {
+    height: 32px;
   }
 }
 </style>

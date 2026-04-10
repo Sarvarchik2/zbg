@@ -6,8 +6,14 @@
   --bg-light: #F2F4F7;
   --bg-dark: #141414;
   --text-primary: #000000;
-  --text-secondary: #4F4F4F;
+  --text-secondary: #4A4A4A;
   --white: #FFFFFF;
+  
+  /* Fluid Typography */
+  --font-hero: clamp(2.5rem, 8vw, 6rem);
+  --font-section-title: clamp(2rem, 5vw, 3.5rem);
+  --font-body: clamp(1rem, 1.2vw, 1.125rem);
+  
   --border-radius-lg: 32px;
   --border-radius-sm: 12px;
   --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -46,25 +52,14 @@ ul {
 }
 
 section {
-  padding: 120px 0;
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 80px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  section {
-    padding: 60px 0;
-  }
+  padding: clamp(60px, 10vw, 160px) 0;
 }
 
 .container {
-  max-width: 1400px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 5%;
 }
 
 @media (max-width: 1024px) {
@@ -350,7 +345,7 @@ section {
 
 .footer-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 800;
   margin-bottom: 32px;
   text-transform: uppercase;
@@ -404,6 +399,14 @@ section {
   text-decoration: underline;
 }
 
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 600px;
+  margin-bottom: 48px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -412,6 +415,28 @@ section {
 }
 
 @media (max-width: 768px) {
+  section {
+    padding: 80px 0;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
   .about-wrapper {
     gap: 40px;
   }
@@ -425,9 +450,6 @@ section {
   }
   .contact-inner {
     padding: 40px 20px;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr;
   }
   .footer-bottom {
     flex-direction: column;
@@ -647,15 +669,17 @@ section {
 
 /* Typography styles */
 .section-title {
-  font-size: 3.5rem;
+  font-size: var(--font-section-title);
+  line-height: 1.1;
   margin-bottom: 24px;
-  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 800;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: var(--font-body);
   color: var(--text-secondary);
-  font-weight: 500;
+  max-width: 600px;
   margin-bottom: 48px;
 }
 

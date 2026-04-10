@@ -585,7 +585,34 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .hero-title {
+  .service-item {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.service-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 968px) {
+  .service-item, .service-item:nth-child(even) {
+    flex-direction: column !important;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  .service-content {
+    order: 2;
+  }
+  
+  .service-visual {
+    order: 1;
+    width: 100%;
+  }
+}
+
+.hero-title {
     font-size: 2.5rem;
   }
   .hero-description {
@@ -620,6 +647,19 @@ onMounted(() => {
   background: transparent;
   color: #fff;
   border: 1px solid rgba(255,255,255,0.2);
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+@media (max-width: 968px) {
+  .about-wrapper {
+    flex-direction: column-reverse; /* Text then Image or Image then Text? Usually Image then Text for visual context. */
+    gap: 40px;
+  }
 }
 
 .benefits-sec {
