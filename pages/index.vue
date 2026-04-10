@@ -230,7 +230,7 @@
       <div class="container">
         <div class="testimonial-card" data-aos>
           <div class="quote-icon">“</div>
-          <p class="testimonial-text">ZBG выбирают лучшие материалы и технологии, которые создают целостный и визуально приятный вид, отражая индивидуальность и вкус клиента. Это новый уровень инжиниринга.</p>
+          <p class="testimonial-text">Best Service Group выбирают лучшие материалы и технологии, которые создают целостный и визуально приятный вид, отражая индивидуальность и вкус клиента. Это новый уровень инжиниринга.</p>
           <div class="testimonial-footer">
             <h4 class="testimonial-author">Michel Carlos</h4>
             <p class="testimonial-role">Инвестор</p>
@@ -505,10 +505,12 @@ const portfolio = [
 ]
 
 const team = [
-  { name: 'Jo\'rayev Bahodir', role: 'Генеральный директор', bio: '20+ лет опыта в управлении строительными проектами.', image: '/team_bahodir_gen_1775798969472.png' },
-  { name: 'Kurbanov Jalol', role: 'Главный инженер', bio: 'Эксперт в области высотного строительства и интеграции ОВКВ.', image: '/team_jalol_gen_1775798986354.png' },
-  { name: 'Abdurozokov Husniddin', role: 'Архитектор', bio: 'Автор более 50 инновационных архитектурных концепций.', image: '/team_husniddin_gen_1775799003914.png' },
-  { name: 'Qahhorov Muhammadbobur', role: 'Технический эксперт', bio: 'Специалист по автоматизации систем пожарной безопасности.', image: '/team_muhammadbobur_gen_1775799841187.png' }
+  { name: 'Abdurozokov Husniddin', role: 'Директор', bio: 'Визионер и руководитель, обеспечивающий стратегическое развитие Best Service Group.', image: '/workers/abdurozoqov.jpeg' },
+  { name: 'Jo\'rayev Bahodir', role: 'Главный инженер', bio: 'Эксперт мирового уровня в области сложных инженерных систем.', image: '/workers/juraev.jpeg' },
+  { name: 'Toxirov Shavkat', role: 'Администратор', bio: 'Обеспечивает безупречную операционную деятельность и координацию проектов.', image: '/workers/toxirov.jpeg' },
+  { name: 'Ishankulov Sardor', role: 'Электрик', bio: 'Специалист по высокоточному электромонтажу и системной интеграции.', image: '/workers/ishanqulov.jpeg' },
+  { name: 'Qahhorov Muhammadbobur', role: 'Электрик', bio: 'Профессионал в области интеллектуальных систем безопасности и сетей.', image: '/workers/qahhorov.jpeg' },
+  { name: 'Kurbanov Jalol', role: 'Специалист', bio: 'Технический эксперт, отвечающий за внедрение инновационных решений на объектах.', image: '/workers/kurbanov.jpeg' }
 ]
 
 onMounted(() => {
