@@ -39,7 +39,8 @@
 
     <!-- About Section -->
     <section id="about" class="about-sec bg-white">
-        <div class="grid-2 about-wrapper" data-aos>
+      <div class="container">
+        <div class="about-wrapper" data-aos>
           <div class="about-image-side">
             <div class="image-container borderless-img-card overflow-hidden">
               <img src="/about_zbg_building_1775798859126.png" alt="О компании" class="full-img" />
@@ -49,24 +50,25 @@
               <span class="badge-txt">Лет опыта</span>
             </div>
           </div>
-        <div class="about-content-side" data-aos>
-          <span class="tag">О компании Best Service Group</span>
-          <h2 class="section-title main-title">Мировые стандарты инжиниринга в Узбекистане</h2>
-          <p class="section-desc">Многие современные строительные компании уделяют особое внимание экологически безопасным методам строительства, внедряя экологически чистые материалы и энергоэффективные системы для снижения воздействия на окружающую среду.</p>
-          
-          <div class="highlights-grid">
-            <div class="highlight-item-new">
-              <div class="icon-circle">✓</div>
-              <div class="highlight-info">
-                <h4>Услуги по всему миру</h4>
-                <p>Мы предоставляем прозрачные сметы расходов и строго придерживаемся сроков.</p>
+          <div class="about-content-side" data-aos>
+            <span class="tag">О компании Best Service Group</span>
+            <h2 class="section-title main-title">Мировые стандарты инжиниринга в Узбекистане</h2>
+            <p class="section-desc">Многие современные строительные компании уделяют особое внимание экологически безопасным методам строительства, внедряя экологически чистые материалы и энергоэффективные системы для снижения воздействия на окружающую среду.</p>
+            
+            <div class="highlights-grid">
+              <div class="highlight-item-new">
+                <div class="icon-circle">✓</div>
+                <div class="highlight-info">
+                  <h4>Услуги по всему миру</h4>
+                  <p>Мы предоставляем прозрачные сметы расходов и строго придерживаемся сроков.</p>
+                </div>
               </div>
-            </div>
-            <div class="highlight-item-new">
-              <div class="icon-circle">✓</div>
-              <div class="highlight-info">
-                <h4>Надежное управление</h4>
-                <p>Наша компания умеет эффективно управлять сложными бюджетами и проектами.</p>
+              <div class="highlight-item-new">
+                <div class="icon-circle">✓</div>
+                <div class="highlight-info">
+                  <h4>Надежное управление</h4>
+                  <p>Наша компания умеет эффективно управлять сложными бюджетами и проектами.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -208,7 +210,7 @@
     <section class="cta-banner-wrapper">
       <div class="container">
         <div class="cta-banner card-rounded bg-dark text-white" data-aos>
-          <div class="cta-grid grid-2">
+          <div class="cta-grid">
             <div class="cta-text">
               <h2 class="cta-title">Есть предстоящие проекты? <br />Давайте поговорим!</h2>
               <p class="cta-desc text-dim">Все больше дизайнеров интерьера уделяют внимание устойчивым и экологичным методам проектирования.</p>
@@ -535,7 +537,7 @@ onMounted(() => {
 .hero {
   position: relative;
   height: 90vh;
-  margin-top: 100px;
+  margin-top: 70px;
   background: var(--bg-dark);
 }
 
@@ -657,7 +659,7 @@ onMounted(() => {
 
 @media (max-width: 968px) {
   .about-wrapper {
-    flex-direction: column-reverse; /* Text then Image or Image then Text? Usually Image then Text for visual context. */
+    flex-direction: column; /* Image then Text */
     gap: 40px;
   }
 }
@@ -769,16 +771,51 @@ onMounted(() => {
   opacity: 0.6;
 }
 
-.cta-content {
+.cta-grid {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 60px;
+}
+
+.cta-banner {
   padding: 80px;
+}
+
+@media (max-width: 1024px) {
+  .cta-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+  }
+  .cta-banner {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-banner {
+    padding: 40px 24px;
+  }
 }
 
 .cta-title {
   font-size: 2.5rem;
-  margin-bottom: 16px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 968px) {
+  .cta-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
 }
 
 .cta-actions {
@@ -791,6 +828,18 @@ onMounted(() => {
   margin-bottom: 24px;
 }
 
+@media (max-width: 768px) {
+  .cta-contact {
+    margin-bottom: 32px;
+    align-items: center;
+    text-align: center;
+  }
+  .cta-desc {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+}
+
 .cta-contact .label {
   font-size: 0.8rem;
   opacity: 0.5;
@@ -800,6 +849,12 @@ onMounted(() => {
   font-family: 'Unbounded', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .cta-contact .value {
+    font-size: 1.25rem;
+  }
 }
 
 .blog-item {
@@ -857,10 +912,10 @@ onMounted(() => {
 
 @media (max-width: 968px) {
   .grid-4 { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .cta-content { flex-direction: column; text-align: center; gap: 40px; }
+  .cta-grid { flex-direction: column; text-align: center; gap: 40px; }
   .cta-actions { text-align: center; }
   .experience-badge { position: static; margin-top: 20px; }
-  .hero-title { font-size: 2rem; }
+  .hero-title { font-size: 2.5rem; }
 }
 
 @media (max-width: 480px) {
