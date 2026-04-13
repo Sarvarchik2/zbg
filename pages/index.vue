@@ -218,7 +218,8 @@
             <div class="cta-actions">
               <div class="cta-contact">
                 <span class="label">Звоните в любое время:</span>
-                <span class="value">+998 99 560 01 01</span>
+                <span class="value">+998 97 912 78 87</span>
+                <span class="value">+998 97 995 60 06</span>
               </div>
               <a href="#contacts" class="btn btn-accent">Связаться с нами</a>
             </div>
@@ -264,11 +265,12 @@
               <div class="contact-details">
                 <div class="detail-item">
                   <span class="d-label">Телефон</span>
-                  <span class="d-value">+998 99 560 01 01</span>
+                  <span class="d-value">+998 97 912 78 87</span>
+                  <span class="d-value">+998 97 995 60 06</span>
                 </div>
                 <div class="detail-item">
                   <span class="d-label">Почта</span>
-                  <span class="d-value">info@bs-group.uz</span>
+                  <span class="d-value">bestservice.group@mail.ru</span>
                 </div>
               </div>
             </div>
@@ -299,7 +301,7 @@
         <div class="footer-grid">
           <div class="footer-col brand-col">
             <div class="footer-logo">
-              <img src="/images/logo.png" alt="Best Service Group" class="footer-logo-img" />
+              <img src="/images/logo.png" alt="BESTSERVICEGROUP MCHJ" class="footer-logo-img" />
             </div>
             <p class="footer-desc">{{ t.footerDesc }}</p>
             <div class="social-links">
@@ -334,15 +336,16 @@
             <h4 class="footer-title">Контакты</h4>
             <ul class="footer-contact">
               <li>Ташкент, Узбекистан</li>
-              <li>+998 99 560 01 01</li>
-              <li>info@bs-group.uz</li>
+              <li>+998 97 912 78 87</li>
+              <li>+998 97 995 60 06</li>
+              <li>bestservice.group@mail.ru</li>
               <li>Пн — Сб: 09:00 — 18:00</li>
             </ul>
           </div>
         </div>
         
         <div class="footer-bottom">
-          <div class="copy">© 2026 Best Service Group. Все права защищены.</div>
+          <div class="copy">© 2026 BESTSERVICEGROUP MCHJ. Все права защищены.</div>
           <div class="legal-links">
             <a href="#">Политика конфиденциальности</a>
             <a href="#">Условия использования</a>
@@ -507,12 +510,9 @@ const portfolio = [
 ]
 
 const team = [
-  { name: 'Abdurozokov Husniddin', role: 'Директор', bio: 'Визионер и руководитель, обеспечивающий стратегическое развитие Best Service Group.', image: '/workers/abdurozoqov.jpeg' },
-  { name: 'Jo\'rayev Bahodir', role: 'Главный инженер', bio: 'Эксперт мирового уровня в области сложных инженерных систем.', image: '/workers/juraev.jpeg' },
-  { name: 'Toxirov Shavkat', role: 'Администратор', bio: 'Обеспечивает безупречную операционную деятельность и координацию проектов.', image: '/workers/toxirov.jpeg' },
-  { name: 'Ishankulov Sardor', role: 'Электрик', bio: 'Специалист по высокоточному электромонтажу и системной интеграции.', image: '/workers/ishanqulov.jpeg' },
-  { name: 'Qahhorov Muhammadbobur', role: 'Электрик', bio: 'Профессионал в области интеллектуальных систем безопасности и сетей.', image: '/workers/qahhorov.jpeg' },
-  { name: 'Kurbanov Jalol', role: 'Специалист', bio: 'Технический эксперт, отвечающий за внедрение инновационных решений на объектах.', image: '/workers/kurbanov.jpeg' }
+  { name: 'Djalilov Xisrav', role: 'Direktor', image: '/workers/worker1.png' },
+  { name: 'Djalilov Lutfiy', role: 'Glavni injiner', image: '/workers/worker2.png' },
+  { name: 'Xusniddinov Shaxobiddin', role: 'Katta usta', image: '/workers/worker3.png' }
 ]
 
 onMounted(() => {
