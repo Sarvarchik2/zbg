@@ -14,5 +14,12 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
+  },
+  runtimeConfig: {
+    telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+    telegramChatId: process.env.TELEGRAM_CHAT_ID,
+    public: {
+      // client-side variables if any
+    }
   }
 })

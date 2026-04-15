@@ -275,19 +275,22 @@
               </div>
             </div>
             <div class="contact-form-side" data-aos>
-              <form class="modern-form">
+              <form class="modern-form" @submit.prevent="submitForm">
                 <div class="input-group">
-                  <input type="text" placeholder="Ваше имя" required />
+                  <input type="text" v-model="form.name" placeholder="Ваше имя" required />
                 </div>
                 <div class="input-group">
-                  <input type="email" placeholder="Электронная почта" required />
+                  <input type="tel" v-model="form.phone" placeholder="Номер телефона" required />
                 </div>
                 <div class="input-group">
-                  <textarea placeholder="Ваше сообщение" rows="4"></textarea>
+                  <textarea v-model="form.message" placeholder="Ваше сообщение" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn btn-accent full-width" @click.prevent>
-                  Отправить заявку <span class="arrow">→</span>
+                <button type="submit" class="btn btn-accent full-width" :disabled="isSubmitting">
+                  <span v-if="isSubmitting">Отправка...</span>
+                  <span v-else>Отправить заявку <span class="arrow">→</span></span>
                 </button>
+                <p v-if="submitStatus === 'success'" class="submit-success">Спасибо! Ваша заявка отправлена.</p>
+                <p v-if="submitStatus === 'error'" class="submit-error">Ошибка при отправке. Попробуйте еще раз.</p>
               </form>
             </div>
           </div>
@@ -514,6 +517,36 @@ const team = [
   { name: 'Djalilov Lutfiy', role: 'Glavni injiner', image: '/workers/worker2.png' },
   { name: 'Xusniddinov Shaxobiddin', role: 'Katta usta', image: '/workers/worker3.png' }
 ]
+
+const isSubmitting = ref(false)
+const submitStatus = ref(null)
+const form = ref({
+  name: '',
+  phone: '',
+  message: ''
+})
+
+const submitForm = async () => {
+  isSubmitting.value = true
+  submitStatus.value = null
+  
+  try {
+    const { data, error } = await useFetch('/api/send-telegram', {
+      method: 'POST',
+      body: form.value
+    })
+    
+    if (error.value) throw new Error()
+    
+    submitStatus.value = 'success'
+    form.value = { name: '', phone: '', message: '' }
+    setTimeout(() => { submitStatus.value = null }, 5000)
+  } catch (err) {
+    submitStatus.value = 'error'
+  } finally {
+    isSubmitting.value = false
+  }
+}
 
 onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
@@ -921,5 +954,26 @@ onMounted(() => {
 @media (max-width: 480px) {
   .grid-4 { grid-template-columns: 1fr; }
   .c-num { font-size: 2.5rem; }
+}
+
+.submit-success {
+  color: #4CAF50;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.submit-error {
+  color: #f44336;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 </style>
